@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class Order {
   final String? id;
   final bool? isActive;
-  final String? price;
+  final double? price;
   final String? company;
   final String? picture;
   final String? buyer;
@@ -34,7 +34,7 @@ class Order {
   factory Order.fromMap(Map<String, dynamic> data) => Order(
         id: data['id'] as String?,
         isActive: data['isActive'] as bool?,
-        price: data['price'] as String?,
+        price: double.tryParse("${data['price']}"),
         company: data['company'] as String?,
         picture: data['picture'] as String?,
         buyer: data['buyer'] as String?,
@@ -70,7 +70,7 @@ class Order {
   Order copyWith({
     String? id,
     bool? isActive,
-    String? price,
+    double? price,
     String? company,
     String? picture,
     String? buyer,
