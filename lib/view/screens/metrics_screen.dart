@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_app/core/config/locale/generated/l10n.dart';
-import 'package:test_app/core/config/routes/app_routes.dart';
-import 'package:test_app/core/shared/filled_button.dart';
 import 'package:test_app/core/shared/responsive/constrained_box.dart';
 import 'package:test_app/core/utils/constants/app_constants.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class MetricsScreen extends StatelessWidget {
+  const MetricsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(S.of(context).appName)),
+      appBar: AppBar(title: Text(S.of(context).metricsScreen)),
       body: ResConstrainedBoxAlign(
         child: Padding(
           padding: const EdgeInsets.all(AppConst.defaultPadding),
@@ -25,14 +23,6 @@ class HomeScreen extends StatelessWidget {
                 S.of(context).goTo,
                 textAlign: TextAlign.center,
                 style: context.textTheme.titleLarge,
-              ),
-              MyFilledButton(
-                text: S.of(context).metricsScreen,
-                onPressed: () => Get.toNamed(AppRoutes.metrics),
-              ),
-              MyFilledButton(
-                text: S.of(context).graphScreen,
-                onPressed: () => Get.toNamed(AppRoutes.graph),
               ),
             ],
           ),
