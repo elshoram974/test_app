@@ -59,6 +59,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Metrics Screen`
+  String get metricsScreen {
+    return Intl.message(
+      'Metrics Screen',
+      name: 'metricsScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Graph Screen`
+  String get graphScreen {
+    return Intl.message(
+      'Graph Screen',
+      name: 'graphScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to`
+  String get goTo {
+    return Intl.message(
+      'Go to',
+      name: 'goTo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
