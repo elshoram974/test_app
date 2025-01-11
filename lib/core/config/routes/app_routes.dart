@@ -8,6 +8,6 @@ class AppRoutes {
   static const String graph = '/graph';
 
   static List<GetPage> get pages => [
-        GetPage(name: metrics, page: () => HomeScreen()),
+        GetPage(name: home, page: () => HomeScreen()),
       ];
 }
