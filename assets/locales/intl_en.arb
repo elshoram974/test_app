@@ -2,5 +2,29 @@
     "appName":"Test App",
     "metricsScreen":"Metrics Screen",
     "graphScreen":"Graph Screen",
+    "totalOrdersNo":"Total Orders: {totalOrders}",
+    "@totalOrdersNo": {
+        "placeholders": {
+            "totalOrders": {
+                "type":"int"
+            }
+        }
+    },
+    "averageOrderPrice":"Average Order Price: {averageOrderPrice}",
+    "@averageOrderPrice": {
+        "placeholders": {
+            "averageOrderPrice": {
+                "type":"double"
+            }
+        }
+    },
+    "returnedOrders":"Returned Orders: {returnedOrders}",
+    "@returnedOrders": {
+        "placeholders": {
+            "returnedOrders": {
+                "type":"int"
+            }
+        }
+    },
     "goTo":"Go to"
 }

@@ -80,6 +80,36 @@ class S {
     );
   }
 
+  /// `Total Orders: {totalOrders}`
+  String totalOrdersNo(int totalOrders) {
+    return Intl.message(
+      'Total Orders: $totalOrders',
+      name: 'totalOrdersNo',
+      desc: '',
+      args: [totalOrders],
+    );
+  }
+
+  /// `Average Order Price: {averageOrderPrice}`
+  String averageOrderPrice(double averageOrderPrice) {
+    return Intl.message(
+      'Average Order Price: $averageOrderPrice',
+      name: 'averageOrderPrice',
+      desc: '',
+      args: [averageOrderPrice],
+    );
+  }
+
+  /// `Returned Orders: {returnedOrders}`
+  String returnedOrders(int returnedOrders) {
+    return Intl.message(
+      'Returned Orders: $returnedOrders',
+      name: 'returnedOrders',
+      desc: '',
+      args: [returnedOrders],
+    );
+  }
+
   /// `Go to`
   String get goTo {
     return Intl.message(

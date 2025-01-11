@@ -9,20 +9,29 @@ class MetricsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle? style =
+        context.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold);
     return Scaffold(
       appBar: AppBar(title: Text(S.of(context).metricsScreen)),
       body: ResConstrainedBoxAlign(
         child: Padding(
           padding: const EdgeInsets.all(AppConst.defaultPadding),
           child: Column(
-            spacing: AppConst.defaultPadding,
+            spacing: 2 * AppConst.defaultPadding,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                S.of(context).goTo,
-                textAlign: TextAlign.center,
-                style: context.textTheme.titleLarge,
+                S.of(context).totalOrdersNo([].length),
+                style: style,
+              ),
+              Text(
+                S.of(context).averageOrderPrice(2.5),
+                style: style,
+              ),
+              Text(
+                S.of(context).returnedOrders(50),
+                style: style,
               ),
             ],
           ),

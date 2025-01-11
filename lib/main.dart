@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      locale: Locale('en'),
+      locale: const Locale('en'),
       supportedLocales: S.delegate.supportedLocales,
       builder: kDebugMode ? DevicePreview.appBuilder : null,
       getPages: AppRoutes.pages,

@@ -29,7 +29,7 @@ class GraphScreen extends StatelessWidget {
                         [].length,
                         (i) {
                           final Order order = [][i];
-                          return FlSpot(order.price ?? 0, order.price ?? 0);
+                          return FlSpot(order.price ?? 0, [].length.toDouble());
                         },
                       ),
                     ],
