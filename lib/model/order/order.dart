@@ -12,7 +12,7 @@ class Order {
   final String? buyer;
   final List<String>? tags;
   final String? status;
-  final String? registered;
+  final DateTime? date;
 
   const Order({
     this.id,
@@ -23,12 +23,12 @@ class Order {
     this.buyer,
     this.tags,
     this.status,
-    this.registered,
+    this.date,
   });
 
   @override
   String toString() {
-    return 'Order(id: $id, isActive: $isActive, price: $price, company: $company, picture: $picture, buyer: $buyer, tags: $tags, status: $status, registered: $registered)';
+    return 'Order(id: $id, isActive: $isActive, price: $price, company: $company, picture: $picture, buyer: $buyer, tags: $tags, status: $status, registered: ${date.toString()})';
   }
 
   factory Order.fromMap(Map<String, dynamic> data) => Order(
@@ -40,7 +40,7 @@ class Order {
         buyer: data['buyer'] as String?,
         tags: data['tags'] as List<String>?,
         status: data['status'] as String?,
-        registered: data['registered'] as String?,
+        date: DateTime.tryParse("${data['registered'] as String?}"),
       );
 
   Map<String, dynamic> toMap() => {
@@ -52,7 +52,7 @@ class Order {
         'buyer': buyer,
         'tags': tags,
         'status': status,
-        'registered': registered,
+        'registered': date?.toIso8601String(),
       };
 
   /// `dart:convert`
@@ -76,7 +76,7 @@ class Order {
     String? buyer,
     List<String>? tags,
     String? status,
-    String? registered,
+    DateTime? date,
   }) {
     return Order(
       id: id ?? this.id,
@@ -87,7 +87,7 @@ class Order {
       buyer: buyer ?? this.buyer,
       tags: tags ?? this.tags,
       status: status ?? this.status,
-      registered: registered ?? this.registered,
+      date: date ?? this.date,
     );
   }
 }
