@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Test app',
+      title: 'Test App',
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
