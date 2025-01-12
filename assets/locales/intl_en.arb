@@ -14,7 +14,7 @@
     "@averageOrderPrice": {
         "placeholders": {
             "averageOrderPrice": {
-                "type":"double"
+                "type":"String"
             }
         }
     },

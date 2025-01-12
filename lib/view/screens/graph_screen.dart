@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:get/get.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:test_app/core/config/locale/generated/l10n.dart';
 import 'package:test_app/core/shared/responsive/constrained_box.dart';
 import 'package:test_app/core/utils/constants/app_constants.dart';
-import 'package:test_app/model/order/order.dart';
+import 'package:test_app/model/chart_data.dart';
+
+import '../../controller/order_controller.dart';
 
 class GraphScreen extends StatelessWidget {
   const GraphScreen({super.key});
@@ -17,26 +20,27 @@ class GraphScreen extends StatelessWidget {
           padding: const EdgeInsets.all(AppConst.defaultPadding),
           child: AspectRatio(
             aspectRatio: 1,
-            child: LineChart(
-              LineChartData(
-                gridData: const FlGridData(show: true),
-                titlesData: const FlTitlesData(show: true),
-                borderData: FlBorderData(show: true),
-                lineBarsData: [
-                  LineChartBarData(
-                    spots: [
-                      ...List.generate(
-                        [].length,
-                        (i) {
-                          final Order order = [][i];
-                          return FlSpot(order.price ?? 0, [].length.toDouble());
-                        },
-                      ),
-                    ],
-                  ),
+            child: GetBuilder<OrderController>(builder: (controller) {
+              return SfCartesianChart(
+                primaryXAxis: const DateTimeAxis(),
+                tooltipBehavior: TooltipBehavior(enable: true),
+                zoomPanBehavior: ZoomPanBehavior(
+                  enablePinching: true,
+                  enablePanning: true,
+                  enableMouseWheelZooming: true,
+                  enableDoubleTapZooming: true,
+                  zoomMode: ZoomMode.xy,
+                ),
+                series: [
+                  LineSeries<ChartData, dynamic>(
+                    dataSource: controller.dataCurve,
+                    name: "Orders",
+                    xValueMapper: (datum, index) => datum.date,
+                    yValueMapper: (datum, index) => datum.orders,
+                  )
                 ],
-              ),
-            ),
+              );
+            }),
           ),
         ),
       ),

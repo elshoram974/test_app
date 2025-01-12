@@ -6,24 +6,24 @@ import 'package:flutter/material.dart';
 class Order {
   final String? id;
   final bool? isActive;
-  final double? price;
+  final double price;
   final String? company;
   final String? picture;
   final String? buyer;
-  final List<String>? tags;
+  final List? tags;
   final String? status;
-  final DateTime? date;
+  final DateTime date;
 
   const Order({
     this.id,
     this.isActive,
-    this.price,
+    this.price = 0.0,
     this.company,
     this.picture,
     this.buyer,
     this.tags,
     this.status,
-    this.date,
+    required this.date,
   });
 
   @override
@@ -34,13 +34,13 @@ class Order {
   factory Order.fromMap(Map<String, dynamic> data) => Order(
         id: data['id'] as String?,
         isActive: data['isActive'] as bool?,
-        price: double.tryParse("${data['price']}"),
+        price: double.parse((data['price'] as String).replaceAll(r'$', '').replaceAll(',', '')),
         company: data['company'] as String?,
         picture: data['picture'] as String?,
         buyer: data['buyer'] as String?,
-        tags: data['tags'] as List<String>?,
+        tags: data['tags'] as List?,
         status: data['status'] as String?,
-        date: DateTime.tryParse("${data['registered'] as String?}"),
+        date: DateTime.parse(data['registered'] as String),
       );
 
   Map<String, dynamic> toMap() => {
@@ -52,7 +52,7 @@ class Order {
         'buyer': buyer,
         'tags': tags,
         'status': status,
-        'registered': date?.toIso8601String(),
+        'registered': date.toIso8601String(),
       };
 
   /// `dart:convert`

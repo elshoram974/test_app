@@ -91,7 +91,7 @@ class S {
   }
 
   /// `Average Order Price: {averageOrderPrice}`
-  String averageOrderPrice(double averageOrderPrice) {
+  String averageOrderPrice(String averageOrderPrice) {
     return Intl.message(
       'Average Order Price: $averageOrderPrice',
       name: 'averageOrderPrice',
